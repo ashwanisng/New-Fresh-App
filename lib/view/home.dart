@@ -1,8 +1,6 @@
-import 'dart:html';
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:news_fresh/hepler/data.dart';
+import 'package:news_fresh/models/articel_model.dart';
 import 'package:news_fresh/models/category_model.dart';
 import 'package:news_fresh/utilities/constant.dart';
 
@@ -13,6 +11,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<CategoryModel> catrgories = List();
+  List<ArticelModel> articels = List();
   @override
   void initState() {
     super.initState();
