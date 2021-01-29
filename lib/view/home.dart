@@ -1,6 +1,10 @@
+import 'dart:html';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:news_fresh/hepler/data.dart';
 import 'package:news_fresh/models/category_model.dart';
+import 'package:news_fresh/utilities/constant.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -18,25 +22,36 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16.0),
-      child: Column(
-        children: [
-          Container(
-            height: 70.0,
-            child: ListView.builder(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              itemCount: catrgories.length,
-              itemBuilder: (context, index) {
-                return CategoryTile(
-                  categoryName: catrgories[index].categoryName,
-                  imageUrl: catrgories[index].imageUrl,
-                );
-              },
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 16.0),
+        child: Column(
+          children: [
+            Container(
+              height: 70.0,
+              child: ListView.builder(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: catrgories.length,
+                itemBuilder: (context, index) {
+                  return CategoryTile(
+                    categoryName: catrgories[index].categoryName,
+                    imageUrl: catrgories[index].imageUrl,
+                  );
+                },
+              ),
             ),
-          )
-        ],
+            Container(
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return BlogTile();
+                },
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -72,11 +87,39 @@ class CategoryTile extends StatelessWidget {
             ),
             child: Text(
               categoryName,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.w700,
-                  fontFamily: 'Livvic-Regular'),
+              style: kTextCategoryName,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class BlogTile extends StatelessWidget {
+  BlogTile({this.title, this.newsImage, this.descreption});
+  final title;
+  final newsImage;
+  final descreption;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        children: [
+          Image.network(newsImage),
+          Text(
+            title,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontFamily: 'fonts/Livvic-Regular',
+              fontSize: 20.0,
+            ),
+          ),
+          Text(
+            descreption,
+            style: TextStyle(
+              fontFamily: 'fonts/Livvic-Light',
+              fontSize: 16.0,
             ),
           )
         ],
