@@ -8,7 +8,7 @@ class CategoryNews {
 
   Future<dynamic> getCategorysNews(String categoryNews) async {
     String url =
-        'http://newsapi.org/v2/top-headlines?country=in&category=$categoryNews&apiKey=b9e7b0d3647148fa90b4e0beff0990bf';
+        'http://newsapi.org/v2/top-headlines?country=in&category=$categoryNews&apiKey=your_key';
     var response = await http.get(url);
     var jsonData = jsonDecode(response.body);
 
