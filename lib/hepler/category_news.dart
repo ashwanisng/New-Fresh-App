@@ -3,13 +3,12 @@ import 'dart:convert';
 import 'package:news_fresh/models/articel_model.dart';
 import 'package:http/http.dart' as http;
 
-class News {
+class CategoryNews {
   List<ArticelModel> news = [];
 
-  String url =
-      'https://newsapi.org/v2/top-headlines?country=in&apiKey=b9e7b0d3647148fa90b4e0beff0990bf';
-
-  Future<dynamic> getNews() async {
+  Future<dynamic> getCategorysNews(String categoryNews) async {
+    String url =
+        'http://newsapi.org/v2/top-headlines?country=in&category=$categoryNews&apiKey=b9e7b0d3647148fa90b4e0beff0990bf';
     var response = await http.get(url);
     var jsonData = jsonDecode(response.body);
 

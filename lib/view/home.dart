@@ -1,11 +1,10 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:news_fresh/hepler/blog_tile.dart';
+import 'package:news_fresh/hepler/category_tile.dart';
 import 'package:news_fresh/hepler/data.dart';
 import 'package:news_fresh/hepler/news.dart';
 import 'package:news_fresh/models/articel_model.dart';
 import 'package:news_fresh/models/category_model.dart';
-import 'package:news_fresh/utilities/constant.dart';
-import 'package:news_fresh/view/articel_view.dart';
 
 bool _loading = true;
 
@@ -100,108 +99,6 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-    );
-  }
-}
-
-class CategoryTile extends StatelessWidget {
-  CategoryTile({this.categoryName, this.imageUrl});
-  final imageUrl;
-  final categoryName;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {},
-      child: Container(
-        margin: EdgeInsets.only(right: 16.0),
-        child: Stack(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(6.0),
-              child: CachedNetworkImage(
-                imageUrl: imageUrl,
-                width: 120.0,
-                height: 60.0,
-                fit: BoxFit.cover,
-              ),
-            ),
-            Container(
-              alignment: Alignment.center,
-              width: 120.0,
-              height: 60.0,
-              decoration: BoxDecoration(
-                color: Colors.black38,
-                borderRadius: BorderRadius.circular(6.0),
-              ),
-              child: Text(
-                categoryName,
-                style: kTextCategoryName,
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class BlogTile extends StatelessWidget {
-  BlogTile(
-      {@required this.title,
-      @required this.newsImage,
-      @required this.descreption,
-      @required this.url});
-  final title;
-  final newsImage;
-  final descreption;
-  final url;
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return ArticelView(
-                urlImage: url,
-              );
-            },
-          ),
-        );
-      },
-      child: Container(
-        margin: EdgeInsets.only(bottom: 16.0),
-        child: Column(
-          children: [
-            ClipRRect(
-              child: Image.network(newsImage),
-              borderRadius: BorderRadius.circular(6.0),
-            ),
-            Text(
-              title,
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w900,
-                fontFamily: 'Livvic',
-                fontSize: 20.0,
-              ),
-            ),
-            SizedBox(
-              height: 8.0,
-            ),
-            Text(
-              descreption,
-              style: TextStyle(
-                color: Colors.white70,
-                fontFamily: 'Livvic',
-                fontSize: 16.0,
-              ),
-            )
-          ],
-        ),
-      ),
     );
   }
 }
