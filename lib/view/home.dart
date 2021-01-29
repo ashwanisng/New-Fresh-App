@@ -5,6 +5,7 @@ import 'package:news_fresh/hepler/news.dart';
 import 'package:news_fresh/models/articel_model.dart';
 import 'package:news_fresh/models/category_model.dart';
 import 'package:news_fresh/utilities/constant.dart';
+import 'package:news_fresh/view/articel_view.dart';
 
 bool _loading = true;
 
@@ -90,6 +91,7 @@ class _HomePageState extends State<HomePage> {
                             title: articels[index].title,
                             newsImage: articels[index].urlToImage,
                             descreption: articels[index].description,
+                            url: articels[index].url,
                           );
                         },
                       ),
@@ -109,33 +111,36 @@ class CategoryTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(right: 16.0),
-      child: Stack(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(6.0),
-            child: CachedNetworkImage(
-              imageUrl: imageUrl,
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
+        margin: EdgeInsets.only(right: 16.0),
+        child: Stack(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(6.0),
+              child: CachedNetworkImage(
+                imageUrl: imageUrl,
+                width: 120.0,
+                height: 60.0,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Container(
+              alignment: Alignment.center,
               width: 120.0,
               height: 60.0,
-              fit: BoxFit.cover,
-            ),
-          ),
-          Container(
-            alignment: Alignment.center,
-            width: 120.0,
-            height: 60.0,
-            decoration: BoxDecoration(
-              color: Colors.black38,
-              borderRadius: BorderRadius.circular(6.0),
-            ),
-            child: Text(
-              categoryName,
-              style: kTextCategoryName,
-            ),
-          )
-        ],
+              decoration: BoxDecoration(
+                color: Colors.black38,
+                borderRadius: BorderRadius.circular(6.0),
+              ),
+              child: Text(
+                categoryName,
+                style: kTextCategoryName,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -145,41 +150,57 @@ class BlogTile extends StatelessWidget {
   BlogTile(
       {@required this.title,
       @required this.newsImage,
-      @required this.descreption});
+      @required this.descreption,
+      @required this.url});
   final title;
   final newsImage;
   final descreption;
+  final url;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(bottom: 16.0),
-      child: Column(
-        children: [
-          ClipRRect(
-            child: Image.network(newsImage),
-            borderRadius: BorderRadius.circular(6.0),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return ArticelView(
+                urlImage: url,
+              );
+            },
           ),
-          Text(
-            title,
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w900,
-              fontFamily: 'Livvic',
-              fontSize: 20.0,
+        );
+      },
+      child: Container(
+        margin: EdgeInsets.only(bottom: 16.0),
+        child: Column(
+          children: [
+            ClipRRect(
+              child: Image.network(newsImage),
+              borderRadius: BorderRadius.circular(6.0),
             ),
-          ),
-          SizedBox(
-            height: 8.0,
-          ),
-          Text(
-            descreption,
-            style: TextStyle(
-              color: Colors.white70,
-              fontFamily: 'Livvic',
-              fontSize: 16.0,
+            Text(
+              title,
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w900,
+                fontFamily: 'Livvic',
+                fontSize: 20.0,
+              ),
             ),
-          )
-        ],
+            SizedBox(
+              height: 8.0,
+            ),
+            Text(
+              descreption,
+              style: TextStyle(
+                color: Colors.white70,
+                fontFamily: 'Livvic',
+                fontSize: 16.0,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
