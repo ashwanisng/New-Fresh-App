@@ -12,24 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Row(
-            children: [
-              Text(
-                "News",
-                style: TextStyle(color: Colors.blue),
-              ),
-              Text(
-                "Fresh",
-                style: TextStyle(color: Colors.white),
-              ),
-            ],
-          ),
-          centerTitle: true,
-        ),
-        body: HomePage(),
-      ),
+      home: HomePage(),
     );
   }
 }

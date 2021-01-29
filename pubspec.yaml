@@ -57,7 +57,7 @@ flutter:
   fonts:
     - family: Livvic
       fonts:
-        - asset: fonts/Livvic-Light.ttf
+        # - asset: fonts/Livvic-Light.ttf
         - asset: fonts/Livvic-Regular.ttf
   #         style: italic
   #   - family: Trajan Pro
