@@ -67,7 +67,6 @@ class _HomePageState extends State<HomePage> {
                     Container(
                       height: 70.0,
                       child: ListView.builder(
-                        physics: ClampingScrollPhysics(),
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
                         itemCount: catrgories.length,
@@ -84,6 +83,7 @@ class _HomePageState extends State<HomePage> {
                       padding: EdgeInsets.only(top: 16.0),
                       child: ListView.builder(
                         shrinkWrap: true,
+                        physics: ClampingScrollPhysics(),
                         itemCount: articels.length,
                         itemBuilder: (context, index) {
                           return BlogTile(
