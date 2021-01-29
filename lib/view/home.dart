@@ -19,6 +19,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(
         children: [
           Container(
@@ -49,18 +50,33 @@ class CategoryTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(right: 16.0),
       child: Stack(
         children: [
-          Image.network(
-            imageUrl,
-            width: 120.0,
-            height: 60.0,
-            fit: BoxFit.cover,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(6.0),
+            child: Image.network(
+              imageUrl,
+              width: 120.0,
+              height: 60.0,
+              fit: BoxFit.cover,
+            ),
           ),
           Container(
+            alignment: Alignment.center,
+            width: 120.0,
+            height: 60.0,
+            decoration: BoxDecoration(
+              color: Colors.black38,
+              borderRadius: BorderRadius.circular(6.0),
+            ),
             child: Text(
               categoryName,
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Livvic-Regular'),
             ),
           )
         ],
