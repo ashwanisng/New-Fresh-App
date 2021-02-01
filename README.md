@@ -30,7 +30,7 @@ A few resources to get you started if this is your first Flutter project:
 
 # Resources
 
-[News API](https://newsapi.org/)
+[Coin Api](https://www.coinapi.io/)
 
 
 For help getting started with Flutter, view our
