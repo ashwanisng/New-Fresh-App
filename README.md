@@ -41,25 +41,17 @@ The [News API](https://newsapi.org/) was used to fetch the latest news. <br>
 | [**Webview Flutter**](https://pub.dev/packages/webview_flutter) | A Flutter plugin that provides a WebView widget on Android and iOS..|
 
 
-# ScreenShot
+## 📸 ScreenShots
 
-<img src="screenshots/ss1.jpg" width = 300 >  <img src="screenshots/ss2.jpg" width = 300 >  
+<!-- <img src="ss/mockup.png"/> -->
 
-
-<img src="screenshots/ss3.jpg" width = 300>  <img src="screenshots/ss4.jpg" width = 300 >  
-
-
-<img src="screenshots/ss5.jpg" width = 300>  <img src="screenshots/ss6.jpg" width = 300>
-
-
-<img src="screenshots/ss7.jpg" width = 300>  <img src="screenshots/ss8.jpg" width = 300>
+| News                             |  News Categories                   |
+| --------------------------------- | --------------------------------- |
+| <img src="screenshots/ss1.jpg" width="200" height="400">  | <img src="screenshots/ss5.jpg" width="200" height="400">  |
+| <img src="screenshots/ss2.jpg" width="200" height="400">  | <img src="screenshots/ss6.jpg" width="200" height="400">  |
+| <img src="screenshots/ss3.jpg" width="200" height="400">  | <img src="screenshots/ss7.jpg" width="200" height="400">  |
+| <img src="screenshots/ss4.jpg" width="200" height="400">  | <img src="screenshots/ss8.jpg" width="200" height="400">  |
 
 
-# Resources
-
-[News Api](https://newsapi.org/)
 
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
